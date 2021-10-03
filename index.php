@@ -103,18 +103,36 @@
   <div class="row">
     <?php
 include "./admin/koneksi.php";
-$sql = "SELECT url, head, parag FROM db_index LIMIT 5";
+$sql = "SELECT id, url, judul, kategori, user, konten, tanggal FROM db_index LIMIT 5";
 //$sql = "SELECT * FROM `db_index` LIMIT 3";
 $q = mysqli_query($dbc, $sql);
 //print_r($row)[0];
 //print_r($row = mysqli_fetch_row($q));
 while ($row = mysqli_fetch_row($q)) 
 {
+  /*
+  judul
+  kategori
+  user
+  konten
+  tanggal
+  */
+  // <img src="'.$row[0].'" class="img-responsive" style="width:100%" alt="'.$row[1].'">
+  //print_r($row[1]);
 	echo '<div class="col-sm-4">
-      <img src="'.$row[0].'" class="img-responsive" style="width:100%" alt="'.$row[1].'">
-      <h3>'.$row[1].'</h3>
-      <p>'.$row[2].'</p>
-    </div>';
+      <a href="lihatDetail.php?id='.$row[0].'" target="_blank">
+      <img src="'.$row[1].'" class="img-responsive" width="1280" heigth="719" alt="'.$row[1].'">
+      </a>
+      <small>'.$row[6].'</small>
+      <br>
+      <small>'.$row[3].'</small>
+      <p>upload by '.$row[4].'</p>
+      <a href="lihatDetail.php?id='.$row[0].'" target="_blank">
+      <h3>'.$row[2].'</h3>
+      </a>
+      <p>'.$row[5].'</p>
+      </a>
+      </div>';
 }
 ?>
     </div>
