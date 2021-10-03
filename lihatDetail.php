@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 include "./admin/koneksi.php";
 $id = number_format($_GET["id"]);
 ?>
@@ -12,6 +13,7 @@ $id = number_format($_GET["id"]);
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://platform-api.sharethis.com/js/sharethis.js#property=6159e5016a41fc001a0acff6&product=inline-share-buttons" async="async"></script>
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -100,7 +102,16 @@ while ($row = mysqli_fetch_row($q))
       </a>
       <p>'.$row[5].'</p>
       </a>
-      </div>';
+      <div class="sharethis-inline-share-buttons"></div>
+      </div>
+      ';
 }
 ?>
     </div>
+    <br>
+<footer class="container-fluid text-center">
+  <p>Copyright &copy; <?= date("Y"); ?> - All Right Reserved.</p>
+</footer>
+
+</body>
+</html>
